@@ -6,6 +6,9 @@ public class Game {
     private static Level homeLevel = new Level("home", new String[]{}, new String[]{});
     private static Level level1 = new Level("level1", new String[]{}, new String[]{});
     private static Player player = new Player(nameSetUp(), 10, 5, homeLevel);
+    private static Enemy zombie = new Enemy("Zombie", 0.5, new String[]{}, 30);
+    private static Enemy skeleton = new Enemy("Skeleton", 1, new String[]{}, 25);
+
     public static void main(String args[]){
         mainConsole();
     }

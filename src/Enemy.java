@@ -1,13 +1,13 @@
 public class Enemy {
     private String name;
     private int health;
-    private int damage;
+    private double damage;
     private String[] items;
 
-    public Enemy(String name, int health, int damage, String[] items) {
+    public Enemy(String name, double damage, String[] items, int health) {
         this.name = name;
-        this.health = health;
         this.damage = damage;
         this.items = items;
+        this.health = health;
     }
 }
