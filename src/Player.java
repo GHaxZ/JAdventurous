@@ -1,12 +1,12 @@
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Player {
     private String name;
     private int maxHealth;
     private int health;
     private int damage;
+    private int healPotions;
     private Level currentLevel;
     private ArrayList<String> items;
 
@@ -16,10 +16,8 @@ public class Player {
         this.health = maxHealth;
         this.damage = damage;
         this.currentLevel = currentLevel;
-    }
-
-    public List getItems(){
-        return null;
+        healPotions = 1;
+        items = new ArrayList<String>(Arrays.asList("Wooden sword"));
     }
 
     public void setCurrentLevel(Level level){
@@ -28,6 +26,22 @@ public class Player {
 
     public Level getCurrentLevel(){
         return currentLevel;
+    }
+
+    public void addItem(String item){
+        if(item.equals("healPotion")){
+            healPotions++;
+        } else {
+            items.add(item);
+        }
+    }
+
+    public ArrayList getItems(){
+        return items;
+    }
+
+    public int getHealPotions(){
+        return healPotions;
     }
 
 }

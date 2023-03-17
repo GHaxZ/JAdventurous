@@ -1,3 +1,7 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Game {
     private static Level homeLevel = new Level("home", new String[]{}, new String[]{});
     private static Level level1 = new Level("level1", new String[]{}, new String[]{});
@@ -47,7 +51,17 @@ public class Game {
                     }
                     break;
                 case "items":
-                    System.out.println("Your items:");
+                    System.out.println("Your items:\n");
+                    ArrayList items = player.getItems();
+
+                    System.out.println("Usable items:\n" + player.getHealPotions() + "x Heal Potion\n");
+
+                    System.out.println("Equipment:");
+
+                    for(int x = 0; x < items.size(); x++){
+                        System.out.println(items.get(x));
+                    }
+
                     break;
                 case "stats":
                     System.out.println("Your stats:");
