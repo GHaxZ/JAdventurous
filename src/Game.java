@@ -30,7 +30,7 @@ public class Game {
 
     public static void mainConsole(){
         while(true){
-            System.out.println("\nAvailable actions: walk, items, stats");
+            System.out.println("\nAvailable actions: walk, items, stats, info");
             String actionInput = InputHandler.inputString();
 
             switch(actionInput.toLowerCase()){
@@ -66,6 +66,13 @@ public class Game {
                     break;
                 case "stats":
                     System.out.println("Your stats:");
+                    break;
+                case "info":
+
+                    System.out.println(player.getName() + " your stats are as followed:");
+                    System.out.println("You currently have " + player.getHealth() + "hp out of " + player.getMaxHealth() + "hp");
+                    player.healthVisualization();
+                    System.out.println("Your are currently on level " + player.getCurrentLevel()); // player.getCurrentLevel will maybe be removed for the futur cuz I don´t know what the variable is supposed to present
                     break;
                 default:
                     System.out.println("\"" + actionInput + "\" is not a valid action.");
