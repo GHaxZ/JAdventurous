@@ -1,6 +1,4 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Game {
     private static Level homeLevel = new Level("home", new String[]{}, new String[]{});
