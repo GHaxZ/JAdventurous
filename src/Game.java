@@ -7,19 +7,24 @@ public class Game {
     private static Enemy zombie = new Enemy("Zombie", 0.5, new String[]{}, 30);
     private static Enemy skeleton = new Enemy("Skeleton", 1, new String[]{}, 25);
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         mainConsole();
     }
 
 
-    public static String nameSetUp(){
+    /**
+     * Method to get the player's name from user input.
+     *
+     * @return The player's name.
+     */
+    public static String nameSetUp() {
         String name = null;
         System.out.print("Welcome to the world of JAdventurous! To get started, please tell me your name: ");
 
-        while(name == null){
+        while (name == null) {
             String nameInput = InputHandler.inputString();
 
-            if(nameInput.length() <= 10){
+            if (nameInput.length() <= 10) {
                 name = nameInput;
             } else {
                 System.out.print(nameInput + " is too long of a username, maximum allowed length is 10 characters. \nPlease enter again: ");
@@ -28,20 +33,23 @@ public class Game {
         return name;
     }
 
-    public static void mainConsole(){
-        while(true){
+    /**
+     * Method to display the main console and handle user input for available actions.
+     */
+    public static void mainConsole() {
+        while (true) {
             System.out.println("\nAvailable actions: walk, items, stats, info");
             String actionInput = InputHandler.inputString();
 
-            switch(actionInput.toLowerCase()){
+            switch (actionInput.toLowerCase()) {
                 case "walk":
                     boolean validInput = false;
 
-                    while(!validInput){
+                    while (!validInput) {
                         System.out.println("Available locations to walk to: level1");
                         String levelInput = InputHandler.inputString();
 
-                        switch(levelInput.toLowerCase()){
+                        switch (levelInput.toLowerCase()) {
                             case "level1":
                                 validInput = true;
                                 levelConsole(level1);
@@ -53,13 +61,13 @@ public class Game {
                     break;
                 case "items":
                     System.out.println("Your items:\n");
-                    ArrayList items = player.getItems();
+                    ArrayList<String> items = player.getItems();
 
                     System.out.println("Usable items:\n" + player.getHealPotions() + "x Heal Potion\n");
 
                     System.out.println("Equipment:");
 
-                    for(int x = 0; x < items.size(); x++){
+                    for (int x = 0; x < items.size(); x++) {
                         System.out.println(items.get(x));
                     }
 
@@ -68,11 +76,10 @@ public class Game {
                     System.out.println("Your stats:");
                     break;
                 case "info":
-
-                    System.out.println(player.getName() + " your stats are as followed:");
-                    System.out.println("You currently have " + player.getHealth() + "hp out of " + player.getMaxHealth() + "hp");
+                    System.out.println(player.getName() + ", your stats are as follows:");
+                    System.out.println("You currently have " + player.getHealth() + " HP out of " + player.getMaxHealth() + " HP");
                     player.healthVisualization();
-                    System.out.println("Your are currently on level " + player.getCurrentLevel()); // player.getCurrentLevel will maybe be removed for the futur cuz I don´t know what the variable is supposed to present
+                    System.out.println("You are currently on level " + player.getCurrentLevel().getName());
                     break;
                 default:
                     System.out.println("\"" + actionInput + "\" is not a valid action.");
@@ -80,7 +87,12 @@ public class Game {
         }
     }
 
-    public static void levelConsole(Level level){
+    /**
+     * Method to enter a level and display relevant information.
+     *
+     * @param level The level to enter.
+     */
+    public static void levelConsole(Level level) {
         player.setCurrentLevel(level);
         System.out.println("You just entered " + level.getName() + ((level.getFirstTime() == true) ? " for the first time" : "") + ".");
         level.setFirstTime();
