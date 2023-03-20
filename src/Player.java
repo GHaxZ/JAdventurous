@@ -111,7 +111,7 @@ public class Player {
 
     public void healthVisualization() {
         int uAmount =(int) (Math.round((2.6*maxHealth+2))); //defines how many lines should be printed out above/under the hearts
-        for(int i = 0; i<uAmount; i++) { //prints the lines above the hearts
+        for(int i = 0; i<uAmount; i++) { //prints the lines above the hearts.
             if(i == 0) {
                 System.out.print("⌜");
             } else if (i == uAmount-1) {
