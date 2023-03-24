@@ -1,3 +1,5 @@
+### WORK IN PROGRESS ###
+
 # JAdventurous
 A simple text based Adventure Game written in Java!
 Aiming to be fun to play while still not having a gui
